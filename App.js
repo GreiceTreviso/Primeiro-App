@@ -1,7 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, FlatList } from 'react-native';
 
-export default function App() {
+export default function App() { 
+{/*constante da lista*/}  const polemicas =[
+{id: "1", titulo: "Vídeo How to Uninstall Gravou um vídeo bizarro com armas e drogas criticando o próprio antivírus que criou."},
+{id: "2", titulo: "Fraude de Cripto Acusado de esquemas de pump and dump,onde promovia moedas digitais para inflar preços e lucrar"},
+{id: "3", titulo: "Homicídio em Belize (2012) Principal suspeito da morte de seu vizinho fugiu do país disfarçado."}
+ ]
+
   return (
     <View style={styles.container}> 
        <ScrollView 
@@ -45,12 +51,25 @@ source={{ uri:'https://crdms.images.consumerreports.org/prod/products/cr/models/
       O software contribuiu para popularizar o uso de antivírus e mostrou a <Text style={{fontWeight: "bold"}}>importância da segurança digital</Text>, influenciando o desenvolvimento de outras ferramentas de proteção e ajudando a estruturar o setor de cibersegurança. </Text>
 </View>
  
+<view style={styles.polemicas}>
+<text style={styles.titupole}>Polemicas Jonh Mcfee</text>
+ <FlatList
+ data={polemicas}
+ keyExtractor={(itens)=>itens.id}
+ renderItem={({item})=>( <text style={{color: "black", marginBottom:10, marginTop:5}}>{item.titulo}</text>
+
+        )}
+ />
+</view>  {/*view da lista*/}
+
+
  {/*footer*/}
  <View style={styles.footer}>
   <Text style={styles.gitHub}>Git Hub</Text>
   <Text style={styles.git}>@GreiceTreviso</Text>
   <Text style={styles.git}>@BisBranc</Text>
  </View>
+
 
 </ScrollView>
     </View>
@@ -87,7 +106,7 @@ const styles = StyleSheet.create({
   
   //titulos
   titulo: {
-fontFamily:'oswald'
+  fontWeight: 'bold'
   },
 
   // imagens
@@ -132,7 +151,7 @@ backgroundColor: '#FF0000',
 width:'100%', 
    height:'10%', 
    justifyContent:'center', 
-   marginTop: 190
+   marginTop: 30
 },
  
 git:{
@@ -142,6 +161,19 @@ textAlign:'left' //empurra lado
 gitHub:{
 textAlign:'center',
 fontWeight: 'bold'
+},
+
+main2:{
+marginBottom: 130
+},
+
+titupole:{
+margin:20,
+fontWeight: "bold"
+},
+
+polemicas:{
+  margin:20
 }
 
 });
